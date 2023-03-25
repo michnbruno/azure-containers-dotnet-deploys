@@ -7,7 +7,6 @@ $RESOURCE_GROUP_NAME= "storemnb6"
 # specify your preferred region
 $REGION= "eastus"
 
-
 # Follow Azure CLI prompts to authenticate to your subscription of choice
 az login
 az account set --subscription $SUB_ID
