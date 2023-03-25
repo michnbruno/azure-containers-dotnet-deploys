@@ -32,7 +32,7 @@ jobs:
       uses: azure/CLI@v1
       with:
         inlineScript: >
-          echo "Skipping Creating resources"
+          echo "Skipping Creating resources.."
 
     #- name: Checkout to the branch
     #  uses: actions/checkout@v2
