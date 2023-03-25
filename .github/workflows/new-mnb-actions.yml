@@ -34,13 +34,13 @@ jobs:
         inlineScript: >
           echo "Skipping Creating resources"
 
-    - name: Checkout to the branch
-      uses: actions/checkout@v2
+    #- name: Checkout to the branch
+    #  uses: actions/checkout@v2
 
-    - name: Azure Login
-      uses: azure/login@v1
-      with:
-         creds: ${{ secrets.AzureSPN }}
+    #- name: Azure Login
+    #  uses: azure/login@v1
+    #  with:
+    #     creds: ${{ secrets.AzureSPN }}
 
     # - name: Create resource group
     #   uses: azure/CLI@v1
