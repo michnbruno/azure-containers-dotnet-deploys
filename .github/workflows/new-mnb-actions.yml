@@ -23,7 +23,7 @@ env:
   PRODUCTS_IMAGE: products
 
   ACR_USERNAME: storemnb5acr
-  ACR_PASSWORD: ZBcp6ufsUkfZIl2CtXuZ3MEKsspYBU/t2kmpK0nhhI+ACRAIZygC
+
 
 jobs:
   provision:
@@ -138,15 +138,15 @@ jobs:
             uses: azure/CLI@v1
             with:
               inlineScript: >
-                az containerapp registry set -n products -g ${{ env.RESOURCE_GROUP_NAME }} --server ${{ env.RESOURCE_GROUP_NAME }}acr.azurecr.io --username ${{ env.ACR_USERNAME}} --password ${{ env.ACR_PASSWORD }}
+                az containerapp registry set -n products -g ${{ env.RESOURCE_GROUP_NAME }} --server ${{ env.RESOURCE_GROUP_NAME }}acr.azurecr.io --username ${{ env.ACR_USERNAME}} --password ${{ secrets.ACR_PASSWORD }}
 
                 az containerapp update -n products -g ${{ env.RESOURCE_GROUP_NAME }} -i ${{ env.RESOURCE_GROUP_NAME }}acr.azurecr.io/${{ env.PRODUCTS_IMAGE }}:${{ github.sha }}
 
-                az containerapp registry set -n inventory -g ${{ env.RESOURCE_GROUP_NAME }} --server ${{ env.RESOURCE_GROUP_NAME }}acr.azurecr.io --username ${{ env.ACR_USERNAME}} --password ${{ env.ACR_PASSWORD }}
+                az containerapp registry set -n inventory -g ${{ env.RESOURCE_GROUP_NAME }} --server ${{ env.RESOURCE_GROUP_NAME }}acr.azurecr.io --username ${{ env.ACR_USERNAME}} --password ${{ secrets.ACR_PASSWORD }}
 
                 az containerapp update -n inventory -g ${{ env.RESOURCE_GROUP_NAME }} -i ${{ env.RESOURCE_GROUP_NAME }}acr.azurecr.io/${{ env.INVENTORY_IMAGE }}:${{ github.sha }}
 
-                az containerapp registry set -n store -g ${{ env.RESOURCE_GROUP_NAME }} --server ${{ env.RESOURCE_GROUP_NAME }}acr.azurecr.io --username ${{ env.ACR_USERNAME}} --password ${{ env.ACR_PASSWORD }}
+                az containerapp registry set -n store -g ${{ env.RESOURCE_GROUP_NAME }} --server ${{ env.RESOURCE_GROUP_NAME }}acr.azurecr.io --username ${{ env.ACR_USERNAME}} --password ${{ secrets.ACR_PASSWORD }}
 
                 az containerapp update -n store -g ${{ env.RESOURCE_GROUP_NAME }} -i ${{ env.RESOURCE_GROUP_NAME }}acr.azurecr.io/${{ env.STORE_IMAGE }}:${{ github.sha }}
           - name: logout
