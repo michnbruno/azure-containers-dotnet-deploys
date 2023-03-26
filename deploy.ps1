@@ -2,7 +2,7 @@
 
 $SUB_ID=""
 
-$RESOURCE_GROUP_NAME= "storemnb6"
+$RESOURCE_GROUP_NAME= "storemnb5"
 
 # specify your preferred region
 $REGION= "eastus"
